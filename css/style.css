@@ -7,26 +7,42 @@ body {
 .container {
     position: relative;
     width: 100vw;
-    height: 20px;
+    height: 200px;
     display: block;
+    background-image: linear-gradient(to right top, rgb(64, 19, 78), rgb(236, 128, 27));
 }
 
-.fog1 {
-    opacity: 0;
-    z-index: 1;
-    position: absolute;
-    width: 100%;
-    height: auto;
-    animation: moveRight 20s linear;
+.fog {
+    position: relative;
+    width: 3px;
+	height: 3px;
+	border-radius: 50%;
+    box-shadow: -10px 30px white,
+    -15px 80px white,
+    0px 120px white,
+    -10px 20px white,
+    -20px 130px white,
+    -100px 50px white,
+    -80px 100px white,
+    -500px 100px white;
+    animation: anim-stars 10s linear infinite;
 }
 
-.fog2 {
-    z-index: 1;
+.fog::after{
     position: absolute;
-    width: 100%;
-    height: auto;
-    animation: moveRight2 20s linear infinite;
-}
+    content: " ";
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    box-shadow: -10px 30px white,
+    -15px 80px white,
+    0px 120px white,
+    -10px 20px white,
+    -20px 130px white,
+    -100px 50px white,
+    -80px 100px white,
+    -500px 100px white;
+  }
 
 .footer {
     position: fixed;
@@ -34,20 +50,11 @@ body {
     background-color: blueviolet;
 }
 
-@keyframes moveRight {
+@keyframes anim-stars {
     0% {
-        filter: drop-shadow(0px 0px 20px rgba(0 0 0 / 90%));
-    }
-    50% {
-        filter: drop-shadow(1300px 0px 20px rgba(0 0 0 / 90%));
-    }
-}
-
-@keyframes moveRight2 {
-    50% {
-        filter: drop-shadow(-1070px 0px 20px rgba(0 0 0 / 90%));
+        transform: translateY(0px);
     }
     100% {
-        filter: drop-shadow(1300px 0px 20px rgba(0 0 0 / 90%));
+        transform: translate(200px, -200px);
     }
 }
